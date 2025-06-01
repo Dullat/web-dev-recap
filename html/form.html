@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="dullat-jatt">
+    <meta name="width" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="woman.jpg">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <title>form learning</title>
+</head>
+
+<body>
+    <main>
+        <article id="contact">
+            <h1>contact me</h1>
+            <p>i really would llike to hear form you</p>
+            <form action="https://httpbin.org/get" meathod="get">
+                <fieldset>
+                    <legend>Personal info</legend>
+                    <p>
+                        <label for="first-name">first-name</label>
+                        <input type="text" name="first-name" id="first-name" placeholder="jane"
+                            aria-placeholder="your name" autocomplete="on" required autofocus>
+                    </p>
+                    <label for="second-name">second-name</label>
+                    <input type="text" id="second-name" name="second-name" placeholder="doe">
+                    <label for="password">password</label>
+                    <input type="password" placeholder="enter a sttrong password" name="password" id="password"
+                        required>
+                    <label for="tel">phone number</label>
+                    <input type="tel" name="tel" id="tel" required placeholder="+5555">
+                    <label for="decade">fav decade</label>
+                    <input type="number" name="decade" id="decade" placeholder="1900">
+                    <p>
+                        <label for="coffee">fav coffee</label>
+                        <select name="coffee" id="coffee" multiple size="3">
+                            <optgroup label="normal">
+                                <option value="regular-coffee">regular-coffee</option>
+                                <option value="italian-coffee">italian-coffee</option>
+                            </optgroup>
+                            <optgroup label="special">
+                                <option value="late-coffee">late-coffee</option>
+                                <option value="mongo-coffee">mongo-coffee</option>
+                            </optgroup>
+                        </select>
+                    </p>
+                    <p>
+                        <label for="country">fav country</label>
+                        <input type="text" name="country" id="country" list="country-list">
+                        <datalist id="country-list">
+                            <option value="india">india</option>
+                            <option value="usa">usa</option>
+                            <option value="uk">uk</option>
+                            <option value="germany">germany</option>
+                        </datalist>
+                    </p>
+                    <p>
+                    <p>select cup size</p>
+                    <input type="radio" name="cup-size" value="small">small <br>
+                    <input type="radio" name="cup-size" value="med">med <br>
+                    <input type="radio" name="cup-size" value="large">large <br>
+                    </p>
+                </fieldset>
+                <fieldset>
+                    <legend>fav food</legend>
+                    <p>
+                        <input type="radio" name="food" id="tacos" value="tacos">
+                        <label for="tacos">tacos</label>
+                        <input type="radio" name="food" id="burger" value="burger">
+                        <label for="burger">burger</label>
+                        <input type="radio" name="food" id="pizza" value="pizza">
+                        <label for="pizza">pizza</label>
+                    </p>
+                </fieldset>
+                <fieldset id="pets">
+                    <legend>choose fav pet</legend>
+                    <p>
+                        <input type="checkbox" name="dog" id="dog" value="dog">
+                        <label for="dog">dog</label>
+                        <input type="checkbox" name="cat" id="cat" value="cat">
+                        <label for="cat">cat</label>
+                    </p>
+                    <p>your messsage to a pet</p>
+                    <label for="note">your note</label>
+                    <textarea name="note" id="note"></textarea>
+                </fieldset>
+                <button type="submit">submit</button>
+                <button type="reset">reset</button>
+            </form>
+        </article>
+    </main>
+</body>
+
+</html>
