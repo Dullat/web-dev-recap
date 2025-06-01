@@ -1,0 +1,26 @@
+* {
+    font-family: monospace;
+}
+
+html{
+    font-size: 16px;
+}
+
+body{
+    font-size: 1rem;
+}
+
+#second{
+    font-style: italic;
+    opacity: .7;
+}
+
+h1, h2 {
+    color: blue;
+}
+
+.highlight {
+    text-transform: uppercase;
+    background-color: gold;
+}
+

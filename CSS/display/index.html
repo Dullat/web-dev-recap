@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            background-color: antiquewhite;
+        }
+        strong{
+            display: inline-block;
+            margin: 1rem;
+            padding: 1rem;
+            height: 50px;
+            background-color: rgb(82, 250, 31);
+            border: 1px solid black;
+        }
+        ul{
+            /* display: contents; hids the outer element but keep the children visible but can mess the style */ 
+            background-color: gray;
+            text-align: end;
+            list-style: none;
+        }
+
+        ul>li{
+            display: inline-block;
+            margin-inline: .2rem;
+            padding-inline: 1rem;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam provident eligendi illum magni, blanditiis officia tempore ipsa sit molestias vitae?</p>
+    <p>Lorem ipsum dolor sit amet <strong>hahah</strong> consectetur adipisicing elit. Ducimus, placeat?</p>
+    <nav>
+        <ul>
+            <li>go-1</li>
+            <li>go-2</li>
+            <li>go-3</li>
+        </ul>
+    </nav>
+</body>
+</html>

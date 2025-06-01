@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            border: 1px dashed red;
+            margin: 1.5rem 1.5rem 0rem 1.5rem;
+            padding: 1rem;
+            outline: 2px solid red;
+            outline-offset: -4px;
+        }
+
+        p {
+            font-size: clamp(1rem, 0.6667rem + 1.7778vw, 2rem);
+            text-decoration: underline;
+            text-transform: uppercase;
+            text-align: center;
+            text-indent: 2rem;
+            font-family: sans-serif;
+        }
+
+        .box {
+            width: clamp(50px, calc(50px + 20vw), 400px);
+            aspect-ratio: 1/1;
+            margin: 2rem auto;
+            border-radius: 100vw;
+            background-color: red;
+        }
+
+        /* line height and latter spacing */
+
+        .pera {
+            line-height: 1.5;
+            word-spacing: 1rem;
+            text-decoration: unset;
+            text-transform: capitalize;
+            text-align: left;
+            text-indent: 5ch;
+            text-wrap: pretty;
+            font-family: monospace;
+        }
+
+        a {
+            color: green;
+        }
+
+        a:hover {
+            color: aqua;
+            background-color: gray;
+        }
+
+        a:active {
+            color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="container">
+        <h1>CSS BOX Model</h1>
+    </header>
+    <main class="container">
+        <p>hi testing units and sizes</p>
+        <div class="box"></div>
+        <p class="pera">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et minima repudiandae expedita magnam
+            dolorem porro necessitatibus? Veniam eveniet nihil optio magnam, earum, accusantium doloribus soluta
+            possimus, voluptas sequi ratione! Debitis odio consequatur quae ex quia fuga omnis sunt atque laborum velit,
+            libero voluptatibus aliquam iste magni, accusamus ducimus nobis odit, quod ab quis. Distinctio pariatur
+            molestiae qui aliquid quis quos, reprehenderit, ratione dolores dignissimos enim officiis nam modi debitis
+            animi tenetur optio. Officia aspernatur expedita placeat eaque non ea assumenda iure facere similique, porro
+            asperiores ut voluptatum deleniti animi soluta reiciendis illum mollitia dicta recusandae obcaecati impedit
+            consectetur commodi laboriosam? Eligendi, aperiam vitae! Accusantium pariatur magnam iusto sapiente
+            similique blanditiis deleniti quidem vel cumque nulla atque corrupti nesciunt ab modi, facere, architecto
+            quasi culpa, laborum quae laudantium labore dolor quod nemo! Vitae officiis illum cupiditate est veniam
+            accusantium quasi, voluptatum expedita animi exercitationem quisquam, ex quae facere atque numquam dolorum.
+        </p>
+        <a href="#" tabindex="1">link</a>
+    </main>
+</body>
+
+</html>
