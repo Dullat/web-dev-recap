@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cols{
+            columns: 4 250px;
+            column-gap: 2rem;
+            column-rule: 1px solid black ;
+        }
+
+        p:nth-of-type(2){
+            break-inside: avoid;
+        }
+
+        .quote{
+            column-span: all;
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        .no-wrap{
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <section class="cols">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi molestiae pariatur, id dignissimos explicabo tempore maiores, provident ad illo ex consequatur doloribus nulla ipsa fugiat alias, accusamus ullam dicta voluptatem libero soluta optio quaerat veniam nisi! Aut dolore molestias aspernatur!</p>
+        <p>Laboriosam voluptatum reiciendis odit tenetur saepe deleniti corporis officia dolor tempora doloremque ut animi, molestias at obcaecati architecto accusamus fugiat expedita ab, quidem voluptatibus nihil. Minima impedit necessitatibus doloremque ex aut! Deleniti eum minus quis autem laudantium. Eum, aspernatur et!</p>
+        <p>Sapiente quas vitae, officiis quis placeat consequatur possimus eum perferendis et, aspernatur, eos ipsum aperiam est laborum dolor tempora numquam nisi dolores rerum fugiat. Odio enim repellendus, quam dignissimos eius sed nihil magni ullam voluptatem, nam praesentium nulla commodi vitae.</p>
+        <p class="quote">the dude hahha <span class="no-wrap">- dullat jatt</span></p>
+        <p>Nesciunt itaque voluptates ratione iusto voluptate adipisci est eius eos, similique dolores amet quas ipsa eligendi praesentium corrupti iste porro facere ex maiores. Delectus incidunt enim illo fuga est, necessitatibus, dolore harum aliquid, adipisci totam doloremque porro molestiae quia magnam.</p>
+        <p>Fugit quos nostrum, expedita numquam officia error dolorum accusamus dicta. Perferendis perspiciatis illum fugiat nostrum tempora vitae ab unde porro blanditiis delectus ullam doloremque rem omnis nesciunt eveniet iusto obcaecati maiores magnam fugit, accusantium modi harum asperiores? Labore, repellendus sapiente!</p>
+    </section>
+</body>
+</html>
