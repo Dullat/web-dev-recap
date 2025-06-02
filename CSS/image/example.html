@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Image Techniques</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            color: #444;
+            margin: 2rem 0 1rem 0;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 0.5rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .example {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .example:hover {
+            transform: translateY(-5px);
+        }
+
+        .example h3 {
+            color: #555;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .example img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .code {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            margin-top: 1rem;
+        }
+
+        /* 1. OBJECT-FIT Examples */
+        .fit-cover {
+            object-fit: cover;
+        }
+
+        .fit-contain {
+            object-fit: contain;
+            background: #f0f0f0;
+        }
+
+        .fit-fill {
+            object-fit: fill;
+        }
+
+        .fit-scale-down {
+            object-fit: scale-down;
+            background: #f0f0f0;
+        }
+
+        /* 2. FILTER Examples */
+        .filter-blur {
+            filter: blur(3px);
+        }
+
+        .filter-brightness {
+            filter: brightness(1.5);
+        }
+
+        .filter-contrast {
+            filter: contrast(1.5);
+        }
+
+        .filter-grayscale {
+            filter: grayscale(100%);
+        }
+
+        .filter-hue-rotate {
+            filter: hue-rotate(90deg);
+        }
+
+        .filter-invert {
+            filter: invert(1);
+        }
+
+        .filter-saturate {
+            filter: saturate(2);
+        }
+
+        .filter-sepia {
+            filter: sepia(100%);
+        }
+
+        .filter-drop-shadow {
+            filter: drop-shadow(10px 10px 20px rgba(0, 0, 0, 0.5));
+        }
+
+        .filter-combo {
+            filter: sepia(50%) hue-rotate(180deg) saturate(1.5);
+        }
+
+        /* 3. CLIP-PATH Examples */
+        .clip-circle {
+            clip-path: circle(50%);
+        }
+
+        .clip-ellipse {
+            clip-path: ellipse(60% 40%);
+        }
+
+        .clip-triangle {
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+
+        .clip-diamond {
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        }
+
+        .clip-hexagon {
+            clip-path: polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%);
+        }
+
+        .clip-arrow {
+            clip-path: polygon(40% 0%, 40% 20%, 100% 20%, 100% 80%, 40% 80%, 40% 100%, 0% 50%);
+        }
+
+        /* 4. MASK Examples */
+        .mask-gradient {
+            -webkit-mask: linear-gradient(45deg, transparent, black);
+            mask: linear-gradient(45deg, transparent, black);
+        }
+
+        .mask-radial {
+            -webkit-mask: radial-gradient(circle, black 50%, transparent 70%);
+            mask: radial-gradient(circle, black 50%, transparent 70%);
+        }
+
+        /* 5. TRANSFORM Examples */
+        .transform-rotate {
+            transform: rotate(15deg);
+        }
+
+        .transform-scale {
+            transform: scale(1.1);
+        }
+
+        .transform-skew {
+            transform: skewX(15deg);
+        }
+
+        .transform-3d {
+            transform: perspective(500px) rotateY(25deg) rotateX(10deg);
+            transform-style: preserve-3d;
+        }
+
+        /* 6. BLEND MODE Examples */
+        .blend-multiply {
+            mix-blend-mode: multiply;
+            background: #ff6b6b;
+        }
+
+        .blend-screen {
+            mix-blend-mode: screen;
+            background: #4ecdc4;
+        }
+
+        .blend-overlay {
+            mix-blend-mode: overlay;
+            background: #45b7d1;
+        }
+
+        .blend-difference {
+            mix-blend-mode: difference;
+            background: #f9ca24;
+        }
+
+        /* 7. ANIMATION Examples */
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .animate-pulse {
+            animation: pulse 2s infinite;
+        }
+
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .animate-rotate {
+            animation: rotate 4s linear infinite;
+        }
+
+        /* 8. HOVER EFFECTS */
+        .hover-zoom {
+            transition: transform 0.3s ease;
+            overflow: hidden;
+        }
+
+        .hover-zoom:hover {
+            transform: scale(1.1);
+        }
+
+        .hover-blur {
+            transition: filter 0.3s ease;
+        }
+
+        .hover-blur:hover {
+            filter: blur(2px);
+        }
+
+        .hover-tilt {
+            transition: transform 0.3s ease;
+        }
+
+        .hover-tilt:hover {
+            transform: rotate(5deg) scale(1.05);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🎨 CSS Image Techniques Masterclass</h1>
+
+        <h2>1. Object-Fit (How images fit in containers)</h2>
+        <div class="grid">
+            <div class="example">
+                <h3>cover (default)</h3>
+                <img src="https://picsum.photos/300/400?random=1" class="fit-cover" alt="Cover example">
+                <div class="code">object-fit: cover;</div>
+            </div>
+            <div class="example">
+                <h3>contain</h3>
+                <img src="https://picsum.photos/300/400?random=2" class="fit-contain" alt="Contain example">
+                <div class="code">object-fit: contain;</div>
+            </div>
+            <div class="example">
+                <h3>fill</h3>
+                <img src="https://picsum.photos/300/400?random=3" class="fit-fill" alt="Fill example">
+                <div class="code">object-fit: fill;</div>
+            </div>
+        </div>
+
+        <h2>2. Filters (Visual effects)</h2>
+        <div class="grid">
+            <div class="example">
+                <h3>Blur</h3>
+                <img src="https://picsum.photos/300/200?random=4" class="filter-blur" alt="Blur example">
+                <div class="code">filter: blur(3px);</div>
+            </div>
+            <div class="example">
+                <h3>Brightness</h3>
+                <img src="https://picsum.photos/300/200?random=5" class="filter-brightness" alt="Brightness example">
+                <div class="code">filter: brightness(1.5);</div>
+            </div>
+            <div class="example">
+                <h3>Grayscale</h3>
+                <img src="https://picsum.photos/300/200?random=6" class="filter-grayscale" alt="Grayscale example">
+                <div class="code">filter: grayscale(100%);</div>
+            </div>
+            <div class="example">
+                <h3>Hue Rotate</h3>
+                <img src="https://picsum.photos/300/200?random=7" class="filter-hue-rotate" alt="Hue rotate example">
+                <div class="code">filter: hue-rotate(90deg);</div>
+            </div>
+            <div class="example">
+                <h3>Drop Shadow</h3>
+                <img src="https://picsum.photos/300/200?random=8" class="filter-drop-shadow" alt="Drop shadow example">
+                <div class="code">filter: drop-shadow(10px 10px 20px rgba(0,0,0,0.5));</div>
+            </div>
+            <div class="example">
+                <h3>Combined Filters</h3>
+                <img src="https://picsum.photos/300/200?random=9" class="filter-combo" alt="Combined filters example">
+                <div class="code">filter: sepia(50%) hue-rotate(180deg) saturate(1.5);</div>
+            </div>
+        </div>
+
+        <h2>3. Clip-Path (Custom shapes)</h2>
+        <div class="grid">
+            <div class="example">
+                <h3>Circle</h3>
+                <img src="https://picsum.photos/300/200?random=10" class="clip-circle" alt="Circle clip example">
+                <div class="code">clip-path: circle(50%);</div>
+            </div>
+            <div class="example">
+                <h3>Triangle</h3>
+                <img src="https://picsum.photos/300/200?random=11" class="clip-triangle" alt="Triangle clip example">
+                <div class="code">clip-path: polygon(50% 0%, 0% 100%, 100% 100%);</div>
+            </div>
+            <div class="example">
+                <h3>Diamond</h3>
+                <img src="https://picsum.photos/300/200?random=12" class="clip-diamond" alt="Diamond clip example">
+                <div class="code">clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);</div>
+            </div>
+            <div class="example">
+                <h3>Hexagon</h3>
+                <img src="https://picsum.photos/300/200?random=13" class="clip-hexagon" alt="Hexagon clip example">
+                <div class="code">clip-path: polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%);</div>
+            </div>
+        </div>
+
+        <h2>4. Masks (Transparency effects)</h2>
+        <div class="grid">
+            <div class="example">
+                <h3>Linear Gradient Mask</h3>
+                <img src="https://picsum.photos/300/200?random=14" class="mask-gradient" alt="Gradient mask example">
+                <div class="code">mask: linear-gradient(45deg, transparent, black);</div>
+            </div>
+            <div class="example">
+                <h3>Radial Gradient Mask</h3>
+                <img src="https://picsum.photos/300/200?random=15" class="mask-radial" alt="Radial mask example">
+                <div class="code">mask: radial-gradient(circle, black 50%, transparent 70%);</div>
+            </div>
+        </div>
+
+        <h2>5. Transforms (Position & rotation)</h2>
+        <div class="grid">
+            <div class="example">
+                <h3>Rotate</h3>
+                <img src="https://picsum.photos/300/200?random=16" class="transform-rotate" alt="Rotate example">
+                <div class="code">transform: rotate(15deg);</div>
+            </div>
+            <div class="example">
+                <h3>3D Perspective</h3>
+                <img src="https://picsum.photos/300/200?random=17" class="transform-3d" alt="3D transform example">
+                <div class="code">transform: perspective(500px) rotateY(25deg) rotateX(10deg);</div>
+            </div>
+        </div>
+
+        <h2>6. Mix Blend Modes (Color mixing)</h2>
+        <div class="grid">
+            <div class="example">
+                <h3>Multiply</h3>
+                <img src="https://picsum.photos/300/200?random=18" class="blend-multiply" alt="Multiply blend example">
+                <div class="code">mix-blend-mode: multiply;<br>background: #ff6b6b;</div>
+            </div>
+            <div class="example">
+                <h3>Screen</h3>
+                <img src="https://picsum.photos/300/200?random=19" class="blend-screen" alt="Screen blend example">
+                <div class="code">mix-blend-mode: screen;<br>background: #4ecdc4;</div>
+            </div>
+            <div class="example">
+                <h3>Difference</h3>
+                <img src="https://picsum.photos/300/200?random=20" class="blend-difference"
+                    alt="Difference blend example">
+                <div class="code">mix-blend-mode: difference;<br>background: #f9ca24;</div>
+            </div>
+        </div>
+
+        <h2>7. Animations (Movement & effects)</h2>
+        <div class="grid">
+            <div class="example">
+                <h3>Pulse Animation</h3>
+                <img src="https://picsum.photos/300/200?random=21" class="animate-pulse" alt="Pulse animation example">
+                <div class="code">animation: pulse 2s infinite;<br><br>@keyframes pulse {<br> 0%, 100% { transform:
+                    scale(1); }<br> 50% { transform: scale(1.05); }<br>}</div>
+            </div>
+            <div class="example">
+                <h3>Float Animation</h3>
+                <img src="https://picsum.photos/300/200?random=22" class="animate-float" alt="Float animation example">
+                <div class="code">animation: float 3s ease-in-out infinite;</div>
+            </div>
+            <div class="example">
+                <h3>Rotate Animation</h3>
+                <img src="https://picsum.photos/300/200?random=23" class="animate-rotate"
+                    alt="Rotate animation example">
+                <div class="code">animation: rotate 4s linear infinite;</div>
+            </div>
+        </div>
+
+        <h2>8. Hover Effects (Interactive)</h2>
+        <div class="grid">
+            <div class="example">
+                <h3>Zoom on Hover</h3>
+                <img src="https://picsum.photos/300/200?random=24" class="hover-zoom" alt="Hover zoom example">
+                <div class="code">transition: transform 0.3s ease;<br><br>.hover:hover {<br> transform: scale(1.1);<br>}
+                </div>
+            </div>
+            <div class="example">
+                <h3>Blur on Hover</h3>
+                <img src="https://picsum.photos/300/200?random=25" class="hover-blur" alt="Hover blur example">
+                <div class="code">transition: filter 0.3s ease;<br><br>.hover:hover {<br> filter: blur(2px);<br>}</div>
+            </div>
+            <div class="example">
+                <h3>Tilt on Hover</h3>
+                <img src="https://picsum.photos/300/200?random=26" class="hover-tilt" alt="Hover tilt example">
+                <div class="code">transition: transform 0.3s ease;<br><br>.hover:hover {<br> transform: rotate(5deg)
+                    scale(1.05);<br>}</div>
+            </div>
+        </div>
+
+        <div
+            style="margin-top: 3rem; padding: 2rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px; color: white;">
+            <h2 style="color: white; border-bottom: 2px solid white;">💡 Pro Tips</h2>
+            <ul style="list-style: none; padding: 0;">
+                <li style="margin: 1rem 0; padding-left: 1.5rem;">🎯 <strong>Combine techniques:</strong> Use multiple
+                    properties together for complex effects</li>
+                <li style="margin: 1rem 0; padding-left: 1.5rem;">⚡ <strong>Performance:</strong> Use transform instead
+                    of changing width/height for animations</li>
+                <li style="margin: 1rem 0; padding-left: 1.5rem;">📱 <strong>Responsive:</strong> Always test your
+                    effects on different screen sizes</li>
+                <li style="margin: 1rem 0; padding-left: 1.5rem;">🎨 <strong>Subtle is better:</strong> Don't overdo
+                    effects - less is often more</li>
+                <li style="margin: 1rem 0; padding-left: 1.5rem;">🔧 <strong>Browser support:</strong> Check caniuse.com
+                    for compatibility</li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

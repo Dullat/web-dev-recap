@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            min-height: 100vh;
+        }
+
+        img {
+            display: block;
+        }
+
+        .nowrap {
+            white-space: nowrap;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            border: 1px solid black;
+        }
+
+        .profile-pic-fig {
+            width: 35%;
+            aspect-ratio: 1/1;
+        }
+
+        .profile-pic-fig img {
+            border-radius: 50%;
+            width: 100%;
+            aspect-ratio: 1/1;
+            min-width: 100px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <section class="container">
+            <figure class="profile-pic-fig">
+                <img src="../woman.jpg" alt="">
+                <figcaption>jane doe</figcaption>
+            </figure>
+            <h1>
+                <span class="nowrap">hello :-</span><span class="nowrap">i am dullatjatt</span>
+            </h1>
+        </section>
+    </main>
+</body>
+
+</html>
