@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: grid;
+            place-content: center;
+            min-height: 100dvh;
+        }
+
+        main {
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .box {
+            display: grid;
+            place-content: center;
+            width: 200px;
+            aspect-ratio: 1/1;
+            background: #ff4444;
+        }
+
+        .box:first-child{
+            transition: all .5s ease;
+        }
+        
+        .box:first-child:hover {
+            /* transform: translate(50%, 50%); */
+            /* transform: rotateZ(20deg); */
+            transform: skew(10deg);
+        }
+
+        /* .box:last-child:hover{
+            transition: 2s all ease;
+            background-color: gray;
+            transform: rotate(70deg);
+        } */
+
+        .box:last-child:hover {
+            animation: rotate1 2s ease 0.5s infinite;
+        }
+
+        @keyframes rotate1 {
+            0% {
+                transform: rotate(0deg) translateX(0);
+            }
+
+            33% {
+                transform: translateX(200px) rotate(180deg) ;
+            }
+
+            66% {
+                transform: translateX(-200px) rotate(-180deg) ;
+            }
+
+            100% {
+                transform:  translateX(0) rotate(0deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            background-color: black;
+            color: white;
+        }
+
+        section{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        button{
+            background-color: transparent;
+            height: 48px;
+            aspect-ratio: 1/1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            border: none;
+        }
+
+        button div,
+        button div::after,
+        button div::before{
+            height: 5px;
+            width: 40px;
+            background-color: white;
+            position: absolute;
+            transition: all .2s ease;
+        }
+
+        button div::after, 
+        button div::before{
+            content: "";
+            background: gray;
+        }
+
+        button div::after{
+            transform: translate(-20px, 12px);
+        }
+
+        button div::before{
+            transform: translate(-20px, -12px);
+        }
+
+        :is(header:hover,
+        button:hover) nav {
+            display: block;
+        }
+
+        :is(header:focus-within, button:hover,) div {
+            background-color: transparent;
+            transform: rotate(720deg);
+        }
+
+        :is(header:focus-within, button:hover,) div:before {
+            transform: translate(-20px, 0px) rotateZ(45deg);
+        }
+
+        :is(header:focus-within, button:hover,) div:after {
+            transform: translate(-20px, 0px) rotateZ(-45deg);
+        }
+
+
+
+        /* nav */
+
+        nav{
+            display: none;
+            animation: showMenu .2s ease forwards;
+            transform-origin: top center;
+        }
+
+        @keyframes showMenu {
+            0%{
+                transform: scaleY(0);
+            }
+
+            80%{
+                transform: scaleY(1.2);
+            }
+            100%{
+                transform: scaleY(1);
+            }
+            
+        }
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            border-collapse: collapse;
+        }
+
+        ul > li{
+            padding: 1rem;
+            border: 1px solid white;
+            border-inline: none;
+        }
+
+        ul > li:nth-child(even){
+            border: none;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <section>
+            <h1>dullat.co</h1>
+            <button>
+                <div class="icon"></div>
+            </button>
+        </section>
+        <nav>
+            <ul>
+                <li>hahah</li>
+                <li>hahah</li>
+                <li>hahah</li>
+            </ul>
+        </nav>
+    </header>
+</body>
+</html>
