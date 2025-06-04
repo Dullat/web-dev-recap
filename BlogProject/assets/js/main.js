@@ -36,6 +36,21 @@ const toggleMenu = () => {
 menuToggleIcon.addEventListener('click', toggleMenu)
 // Open/Close search form popup
 
+const formCloseBtn = selectElement('#form-close-btn')
+const formOpenBtn = selectElement('#search-icon')
+
+const toggleFrom = () => {
+    const searchForm = selectElement('#search-form-container')
+    searchForm.classList.toggle('activated')
+}
+
+formCloseBtn.addEventListener('click', toggleFrom)
+formOpenBtn.addEventListener('click', toggleFrom)
+window.addEventListener('keyup', e => e.key === 'Escape'? toggleFrom() : "")
+// window.addEventListener('keyup', e => {
+//     if(e.key === 'Escape') toggleFrom()
+// })
+
 // -- Close the search form popup on ESC keypress
 
 // Switch theme/add to local storage
